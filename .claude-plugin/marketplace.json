@@ -1,0 +1,30 @@
+{
+  "name": "cloud-architect-marketplace",
+  "owner": {
+    "name": "Mohammed R",
+    "email": "mohammedr62@gmail.com"
+  },
+  "metadata": {
+    "description": "Vendor-neutral cloud architecture design for Claude Code."
+  },
+  "plugins": [
+    {
+      "name": "cloud-architect",
+      "source": "./plugins/cloud-architect",
+      "description": "Vendor-neutral cloud architecture sized to what your team can actually run: new systems, features that fit your existing codebase, and migrations with cut-over and rollback. Options with rough cost, portability, data residency, diagrams, ADRs with fitness criteria and a CTO decision brief. Architecture only; reads code, never writes it.",
+      "version": "1.0.0",
+      "category": "development",
+      "keywords": [
+        "architecture",
+        "compliance",
+        "cost-estimate",
+        "data-residency",
+        "devops",
+        "gdpr",
+        "multi-cloud",
+        "system-design"
+      ],
+      "homepage": "https://github.com/mohammedrampurawala1111/cloud-architect"
+    }
+  ]
+}

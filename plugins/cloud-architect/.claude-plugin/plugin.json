@@ -1,0 +1,34 @@
+{
+  "name": "cloud-architect",
+  "displayName": "Cloud Architect",
+  "version": "1.0.0",
+  "description": "Vendor-neutral cloud architecture sized to what your team can actually run: new systems, features that fit your existing codebase, and migrations with cut-over and rollback. Options with rough cost, portability, data residency, diagrams, ADRs with fitness criteria and a CTO decision brief. Architecture only; reads code, never writes it.",
+  "author": {
+    "name": "Mohammed R",
+    "email": "mohammedr62@gmail.com"
+  },
+  "homepage": "https://github.com/mohammedrampurawala1111/cloud-architect",
+  "repository": "https://github.com/mohammedrampurawala1111/cloud-architect",
+  "license": "MIT",
+  "keywords": [
+    "adr",
+    "architecture",
+    "aws",
+    "azure",
+    "brownfield",
+    "c4",
+    "cloud",
+    "cloud-agnostic",
+    "compliance",
+    "data-residency",
+    "devops",
+    "diagram",
+    "fitness-criteria",
+    "gcp",
+    "gdpr",
+    "kubernetes",
+    "migration",
+    "multi-cloud",
+    "system-design"
+  ]
+}

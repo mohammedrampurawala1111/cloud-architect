@@ -1,0 +1,6 @@
+---
+type: llm
+focus: last_message
+weight: 2
+---
+Judge as a principal DevOps architect reviewing the DESIGN before a platform team builds it. Judge architecture decisions, not implementation detail: do not require product or tool names for secrets, CI/CD or monitoring, pipeline steps, deploy or rollback mechanics, runbooks or configuration; leaving those to the platform team is correct. PASS only if all hold: (1) right-sized: nothing heavier than the team, traffic and availability need justify, and no essential building block missing; (2) failure modes fit the targets: no single point of failure that breaks the stated availability, and the recovery tier matches RPO/RTO; (3) sound boundaries: where traffic enters, what is private, and where sensitive data lives and flows are clear and defensible; (4) operable by the stated team: what must be monitored and recovered is stated, and the availability target is reconciled with their on-call situation; (5) environments are separated and isolated as a requirement; (6) internally consistent: figures, verdicts and criteria agree across sections, and cost is plausible for the sizing with the big traps named; (7) the hard trade-offs are stated honestly, with what would change the decision. FAIL only for a design flaw that would make you send it back, never for detail that belongs to the platform team.

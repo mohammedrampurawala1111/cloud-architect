@@ -1,0 +1,39 @@
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://localhost:5432/fieldservice"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Customer {
+  id       String @id @default(cuid())
+  tenantId String
+  name     String
+  email    String
+  phone    String?
+  jobs     Job[]
+  @@index([tenantId])
+}
+
+model Technician {
+  id       String @id @default(cuid())
+  tenantId String
+  name     String
+  jobs     Job[]
+  @@index([tenantId])
+}
+
+model Job {
+  id           String      @id @default(cuid())
+  tenantId     String
+  customerId   String
+  customer     Customer    @relation(fields: [customerId], references: [id])
+  technicianId String?
+  technician   Technician? @relation(fields: [technicianId], references: [id])
+  scheduledFor DateTime?
+  status       String      @default("new")
+  address      String
+  @@index([tenantId, status])
+}

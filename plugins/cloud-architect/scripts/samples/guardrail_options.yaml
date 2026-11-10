@@ -1,0 +1,29 @@
+options:
+  - name: A. Managed containers
+    provider: aws
+    region: eu-central-1
+    components:
+      - name: API
+        product: ECS on Fargate
+        class: managed_containers
+      - name: Primary DB
+        product: RDS for PostgreSQL
+        class: managed_database
+      - name: CDN
+        product: CloudFront
+        class: cdn
+        global: true
+  - name: B. Kubernetes
+    provider: aws
+    region: eu-central-1
+    components:
+      - name: Cluster
+        product: EKS
+        class: managed_kubernetes
+      - name: Search
+        product: OpenSearch on EC2
+        class: self_hosted_database
+      - name: Queue
+        product: SQS
+        class: managed_queue
+        region: us-east-1

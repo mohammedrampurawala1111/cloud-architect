@@ -1,0 +1,6 @@
+---
+type: llm
+focus: last_message
+weight: 1
+---
+FAIL only if the response names a cloud product or managed service that clearly does not exist under that name, or attributes a managed service to a provider that does not offer it (e.g. 'Hetzner Managed PostgreSQL', 'AWS Kubernetes Lite'). Renamed or recently launched products are fine. If unsure whether a product exists, PASS. Treat these 2025-2026 product names as real: Gemini Enterprise Agent Platform (formerly Vertex AI), Agent Search, Agent Platform Endpoints, Microsoft Foundry (formerly Azure AI Foundry), Azure Managed Redis, Azure Database for PostgreSQL elastic clusters, Fabric Data Warehouse, Aurora DSQL, Amazon S3 Vectors, Timestream for InfluxDB, AWS European Sovereign Cloud, EU Data Boundary, Google Cloud Data Boundary, Google Cloud Dedicated, S3NS, Delos Cloud, Bleu, Cloud Run functions, Memorystore for Valkey, Managed Service for Apache Kafka, Hetzner Object Storage, OVHcloud Managed Kubernetes Service / Public Cloud Databases / AI Endpoints, Scaleway Kubernetes Kapsule / Serverless Containers / Serverless Functions / Generative APIs, STACKIT Kubernetes Engine (SKE) / PostgreSQL Flex / AI Model Serving, IONOS Managed Kubernetes / DBaaS / AI Model Hub.

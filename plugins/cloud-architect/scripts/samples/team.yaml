@@ -1,0 +1,37 @@
+# Team profile as emitted by the interview skill, plus the options to check.
+team:
+  builders: 4
+  operators: 2
+  on_call: false
+  platform_team: false
+  skills:            # 0 none, 1 some, 2 solid, 3 expert
+    aws: 1
+    azure: 0
+    gcp: 2
+    containers: 2
+    kubernetes: 0
+    iac: { terraform: 1 }
+    ci_cd: { github_actions: 2 }
+    observability: 1
+  languages: [typescript, python]
+  preference: managed   # managed | balanced | control
+
+options:
+  - name: A. Serverless
+    components:
+      - { name: API, class: serverless_functions }
+      - { name: Primary DB, class: managed_database }
+      - { name: Files, class: object_storage }
+      - { name: Jobs, class: managed_queue }
+  - name: B. Managed containers
+    components:
+      - { name: API, class: managed_containers }
+      - { name: Worker, class: managed_containers }
+      - { name: Primary DB, class: managed_database }
+      - { name: Cache, class: managed_cache }
+      - { name: Jobs, class: managed_queue }
+  - name: C. Kubernetes + GitOps
+    components:
+      - { name: Cluster, class: managed_kubernetes }
+      - { name: Primary DB, class: managed_database }
+      - { name: Jobs, class: managed_queue }

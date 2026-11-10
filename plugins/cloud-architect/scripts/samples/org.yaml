@@ -1,0 +1,25 @@
+# Org profile: what the platform team already runs and allows.
+# Lives in the user's repo at .cloud-architect/org.yaml.
+org:
+  name: Acme
+  clouds: [aws]
+  regions: [eu-central-1, eu-west-1]
+  approved_services:
+    - ECS on Fargate
+    - Lambda
+    - RDS for PostgreSQL
+    - SQS
+    - S3
+    - CloudFront
+    - Cognito
+  forbidden_classes: [self_hosted_database, self_run_kubernetes_control_plane]
+  platform:
+    landing_zone: AWS Control Tower, one account per environment
+    iac: terraform
+    ci_cd: github_actions
+    observability: datadog
+    golden_paths: [service-template-node, service-template-go]
+  policies:
+    - Encryption at rest on every data store
+    - No public object storage
+    - Tags on everything - system, env, owner
