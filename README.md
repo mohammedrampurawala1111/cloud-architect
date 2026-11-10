@@ -31,27 +31,26 @@ makes a design survivable for a small team and buildable by someone else:
 - **Residency done properly.** Regions per data category, a data-flow map,
   foreign-jurisdiction flags and control requirements for the laws in scope.
 
-Measured against plain Claude with the same prompts, Sonnet as the model and a
-blind Opus judge, 3 runs per scenario: 18 new-system design scenarios, and one
-scenario each for a migration and a feature in an existing repo. [`evals/RESULTS.md`](evals/RESULTS.md) has the method and caveats.
+Measured against plain Claude on 20 scenarios, 3 runs each, with the same
+prompts, Sonnet as the model and a blind Opus judge. [`evals/RESULTS.md`](evals/RESULTS.md)
+has the method and caveats.
 
 | | With cloud-architect | Plain Claude |
 |---|---|---|
-| Senior SRE production-readiness review | **48 / 54** | 22 / 54 |
-| Principal DevOps architect design review | **34 / 54** | 8 / 54 |
-| Every decision has a "because" | **51 / 54** | 39 / 54 |
+| Senior SRE production-readiness review | **56 / 57 (98%)** | 20 / 57 (35%) |
+| Principal DevOps architect design review | **47 / 57 (82%)** | 8 / 57 (14%) |
+| Team fit respected | **57 / 57** | 51 / 57 |
 | Holds Kubernetes pushback when the CTO asks for EKS | **3 / 3** | 0 / 3 |
-| Residency data-flow map (regulated cases) | **12 / 12** | 2 / 12 |
-| Legacy migration (`migrate`) | **1.00** | 0.81 |
-| Feature in an existing repo (`extend`) | **0.98** | 0.60 |
-| Cost per design (Sonnet, chat answer) | USD 0.22 | USD 0.15 |
+| Every decision has a "because" | **55 / 57** | 39 / 57 |
+| Residency data-flow map (regulated cases) | **12 / 12** | 3 / 12 |
+| Legacy migration (`migrate`) | **0.95** | 0.79 |
+| Feature in an existing repo (`extend`) | **1.00** | 0.58 |
+| Mean score | **0.97** | 0.65 |
+| Cost per design (Sonnet, chat answer) | USD 0.27 | USD 0.16 |
 
-Senior reviewers approve its designs about twice as often. These runs used an
-earlier build in which local scripts did the team scoring and guardrail checks;
-1.0.0 applies the same rules as written instructions (the directory doesn't
-accept scripts from most publishers), and hasn't been re-measured yet. The strictest
-review still sends back 20 of 54 new-system designs, mostly for capacity
-figures that don't add up or recovery that misses a stateful component.
+Senior reviewers approve its designs nearly three times as often. The strictest
+review still sends back 10 of 57, mostly for a cost or recovery figure that
+doesn't match its mechanism.
 
 ## Install
 
@@ -189,6 +188,18 @@ making the final decision:
 | [eu-fintech-payments](examples/eu-fintech-payments/) | German payments platform under DORA, EU-only |
 | [iot-telemetry-pipeline](examples/iot-telemetry-pipeline/) | 20k devices, real-time alerting, 13-month history |
 | [ml-inference-api](examples/ml-inference-api/) | Fine-tuned 8B model behind a public API |
+
+## Troubleshooting
+
+| Problem | What to do |
+|---|---|
+| The plugin didn't start | Start it directly: `/cloud-architect:design`, `/cloud-architect:extend` or `/cloud-architect:migrate`, followed by what you're building |
+| The team score or a verdict looks wrong | Check the "Reasoning" line under the budget: it lists each team fact it used. Correct the fact ("we do have an on-call rotation", "two of us know Kubernetes well") and ask it to re-score |
+| It recommends something your platform team doesn't allow | Add `.cloud-architect/org.yaml` (see Org profile) or state the rules in your request; anything outside them becomes an explicit exception |
+| You can't find the files | They're in `docs/architecture/<name>/` in the repository you're working in. Say "don't write any files" to get the answer in chat instead |
+| A diagram doesn't render | Ask it to fix that diagram; Mermaid versions differ. Quoted labels and simple `flowchart` diagrams render most reliably |
+| The answer is too long for a quick question | Start with "quick:" for one recommendation and one alternative |
+| Something else | Open an issue: https://github.com/mohammedrampurawala1111/cloud-architect/issues |
 
 ## What it reads and runs
 

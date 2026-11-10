@@ -1,6 +1,6 @@
 ---
 name: design
-description: "Design the architecture for a new system end to end - team-aware, cloud- and tool-agnostic, within the org's guardrails, with options, provider mapping with portability, diagrams, ADRs with fitness criteria and a rough cost range. Load this before answering any request to design, architect or plan a new system, platform, API, pipeline or cloud stack, however detailed or however quick and rough (\"quick: ...\", \"just give me something\") the request is."
+description: "Design the architecture for a new system the user will build and run: options sized to the team's skills and on-call, cloud and region choice (AWS, Azure, GCP, Kubernetes or regional providers), provider mapping with portability, diagrams, ADRs with fitness criteria and a rough cost range. Use when the user asks how to architect, design or plan a new application, service, API, platform, data pipeline or cloud stack, or which cloud services or hosting to use for one, including quick or rough requests. For a feature in an existing codebase use extend; for moving an existing system use migrate."
 argument-hint: "[short description of what you're building]"
 ---
 
