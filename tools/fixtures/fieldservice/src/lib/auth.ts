@@ -1,13 +1,11 @@
-import { createRemoteJWKSet, jwtVerify } from "jose";
 import type { Request, Response, NextFunction } from "express";
-import { config } from "./config";
 
-const jwks = createRemoteJWKSet(new URL(config.cognitoJwksUrl));
-
-export async function requireAuth(req: Request, res: Response, next: NextFunction) {
-  const token = req.headers.authorization?.replace("Bearer ", "");
-  if (!token) return res.status(401).end();
-  const { payload } = await jwtVerify(token, jwks);
-  (req as any).user = { sub: payload.sub, tenantId: payload["custom:tenant_id"] };
+// Sign-in happens at the API gateway (Cognito authorizer). The gateway forwards
+// only authenticated requests and sets the caller's tenant in x-tenant-id;
+// this service accepts traffic from the gateway only (private subnet, see infra/).
+export function requireAuth(req: Request, res: Response, next: NextFunction) {
+  const tenantId = req.header("x-tenant-id");
+  if (!tenantId) return res.status(401).end();
+  (req as any).user = { tenantId };
   next();
 }
