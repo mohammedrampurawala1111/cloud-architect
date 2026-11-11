@@ -16,6 +16,16 @@ that the existing ones can't meet.
 never run builds, tests, package managers or anything that contacts an
 environment. The output is a design the team builds from.
 
+**No repository or project folder (e.g. Claude chat, Cowork).** If there is
+no repository or writable project folder available (for example in Claude chat
+or Cowork without a folder), do not try to write files: deliver every document
+in the conversation as Markdown sections with the same headings, and say once
+that files weren't written. Skip repo scanning and say the team profile is
+self-reported.
+
+**No codebase?** This skill needs an existing codebase to read. If there is
+none, say so and offer the `design` workflow instead.
+
 ## 1. The feature
 From `$ARGUMENTS` and the conversation: what the feature does, who uses it,
 expected load and data, latency or availability needs, and constraints

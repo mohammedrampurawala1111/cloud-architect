@@ -22,6 +22,13 @@ an ADR about it only when the architecture depends on it.
 
 Don't write ADRs for trivial or easily reversed choices.
 
+**No repository or project folder (e.g. Claude chat, Cowork).** If there is
+no repository or writable project folder available (for example in Claude chat
+or Cowork without a folder), do not try to write files: deliver every document
+in the conversation as Markdown sections with the same headings, and say once
+that files weren't written. Skip repo scanning and say the team profile is
+self-reported.
+
 ## Files
 - Path: `docs/architecture/<system-slug>/adr/NNNN-kebab-title.md`, numbered
   from `0001`. If an `adr/` folder already exists in the repo, continue its

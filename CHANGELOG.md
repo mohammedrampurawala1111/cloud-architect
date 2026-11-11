@@ -3,6 +3,27 @@
 All notable changes to the `cloud-architect` plugin. Versions follow
 [Semantic Versioning](https://semver.org/).
 
+## [1.2.0] — 2026-11-11
+
+Clearer eval claims, works on every surface, sharper description.
+
+### Changed
+- **Eval claims marked as AI-judged.** The review rows in the READMEs and
+  `evals/RESULTS.md` are now "Senior-SRE rubric (Opus judge)" and
+  "Principal-DevOps rubric (Opus judge)", and each results table says it was
+  scored by an LLM judge with rubrics written by the author, not a human
+  review. All numbers are unchanged.
+- **Claude chat and Cowork.** `design`, `extend`, `migrate`, `decision-brief`,
+  `adr`, `diagram`, `data-residency` and `interview` now say what to do with no
+  repository or writable project folder: deliver every document in the
+  conversation under the same headings, say once that files weren't written,
+  skip the repo scan and treat the team profile as self-reported. `extend` asks
+  for a codebase and offers `design` when there is none. "Where it works" in
+  the README covers both.
+- **Description** in `plugin.json` and `marketplace.json` now leads with team
+  fit, data residency and EU sovereign providers; added the keywords
+  `eu-sovereign-cloud` and `team-fit`.
+
 ## [1.1.0] — 2026-11-11
 
 Instructions and reference data only, and measured end to end against plain

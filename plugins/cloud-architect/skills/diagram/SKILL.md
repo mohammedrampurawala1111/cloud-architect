@@ -9,6 +9,13 @@ Mermaid renders in GitHub, GitLab, most wikis and Claude, and diffs cleanly in
 git — so it is the default. Produce **text diagrams only**; never reproduce
 vendor icon artwork.
 
+**No repository or project folder (e.g. Claude chat, Cowork).** If there is
+no repository or writable project folder available (for example in Claude chat
+or Cowork without a folder), do not try to write files: deliver every document
+in the conversation as Markdown sections with the same headings, and say once
+that files weren't written. Skip repo scanning and say the team profile is
+self-reported.
+
 ## Views to produce
 Write them all to `diagrams.md`, each under its own heading with a one-line
 caption explaining what to look at.

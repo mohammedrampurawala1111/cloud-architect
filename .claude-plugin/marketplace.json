@@ -11,8 +11,8 @@
     {
       "name": "cloud-architect",
       "source": "./plugins/cloud-architect",
-      "description": "Vendor-neutral cloud architecture sized to what your team can actually run: new systems, features that fit your existing codebase, and migrations with cut-over and rollback. Options with rough cost, portability, data residency, diagrams, ADRs with fitness criteria and a CTO decision brief. Architecture only; reads code, never writes it.",
-      "version": "1.1.0",
+      "description": "Cloud architecture sized to what your team can run, with data residency built in: options mapped to AWS, Azure, GCP, Kubernetes or EU sovereign providers (Hetzner, OVHcloud, Scaleway, STACKIT, IONOS), team-fit scoring, diagrams, ADRs with fitness criteria and a CTO decision brief. Covers new systems, features in existing code and migrations. Reads code, never writes it.",
+      "version": "1.2.0",
       "category": "development",
       "keywords": [
         "architecture",
@@ -20,9 +20,11 @@
         "cost-estimate",
         "data-residency",
         "devops",
+        "eu-sovereign-cloud",
         "gdpr",
         "multi-cloud",
-        "system-design"
+        "system-design",
+        "team-fit"
       ],
       "homepage": "https://github.com/mohammedrampurawala1111/cloud-architect"
     }

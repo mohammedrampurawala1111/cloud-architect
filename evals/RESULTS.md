@@ -8,8 +8,8 @@ side (120 runs), same prompts and tools, blind LLM judge.
 
 | | With plugin | Plain Claude |
 |---|---|---|
-| **Senior SRE production-readiness review** (reader-side) | **56 / 57 (98%)** | 20 / 57 (35%) |
-| **Principal DevOps architect design review** (reader-side, strictest) | **47 / 57 (82%)** | 8 / 57 (14%) |
+| **Senior-SRE rubric (Opus judge)** (reader-side) | **56 / 57 (98%)** | 20 / 57 (35%) |
+| **Principal-DevOps rubric (Opus judge)** (reader-side, strictest) | **47 / 57 (82%)** | 8 / 57 (14%) |
 | Team fit respected | **57 / 57** | 51 / 57 |
 | Kubernetes pushback when the CTO asks for EKS (case 15) | **3 / 3** | 0 / 3 |
 | Every decision has a "because" | **55 / 57** | 39 / 57 |
@@ -24,13 +24,16 @@ side (120 runs), same prompts and tools, blind LLM judge.
 | Mean cost per design (USD) | 0.27 | 0.16 |
 | Mean time per design (s) | 150 | 106 |
 
+Scored by an LLM judge (Opus) with rubrics written by the author; not a human review. Method and caveats in evals/RESULTS.md.
+
 ¹ Excludes `portability-ratings`, `not-legal-advice`, `decision-unticked`,
 `no-ticked-decision` and `options-at-a-glance`.
 
-**What this says.** A senior SRE approves the plugin's design 56 times in 57,
-against 20 for plain Claude; a principal DevOps architect approves 47 against 8.
+**What this says.** The Opus judge, using the senior-SRE rubric, approves the
+plugin's design 56 times in 57, against 20 for plain Claude; using the
+principal-DevOps rubric, it approves 47 against 8.
 Both sides read code equally well and both give a buildable design with a cost
-estimate; the plugin wins on what reviewers check next: team fit that holds
+estimate; the plugin wins on what the rubrics check next: team fit that holds
 under pressure, recovery that covers every stateful component, consistent
 figures, and residency analysis. It costs about 1.7× as much per design.
 
@@ -58,7 +61,7 @@ figures, and residency analysis. It costs about 1.7× as much per design.
 
 ## Known weak spots
 
-- **Principal DevOps review still rejects 10 of 57** plugin designs, mostly
+- **The principal-DevOps rubric still rejects 10 of 57** plugin designs, mostly
   for a cost or recovery figure that doesn't match its mechanism.
 - **Feature in an existing repo is the most expensive case** (USD 0.53 per
   design): the repository is read with Claude's own tools.
@@ -92,6 +95,8 @@ figures, and residency analysis. It costs about 1.7× as much per design.
 
 **Mean score:** plugin 0.97 · baseline 0.65 · Δ +0.32  
 **Scenarios:** plugin better 19 · tie 1 · baseline better 0
+
+Scored by an LLM judge (Opus) with rubrics written by the author; not a human review. Method and caveats in evals/RESULTS.md.
 
 | Grader | Plugin pass | Baseline pass |
 |---|---|---|
@@ -134,6 +139,8 @@ figures, and residency analysis. It costs about 1.7× as much per design.
 | team-fit | 57/57 | 51/57 |
 | tenant-isolation | 3/3 | 3/3 |
 | uses-existing-estate | 3/3 | 3/3 |
+
+Scored by an LLM judge (Opus) with rubrics written by the author; not a human review. Method and caveats in evals/RESULTS.md.
 
 | Arm | Runs | Mean cost (USD) | Mean time (s) | Replies with Mermaid lint errors |
 |---|---|---|---|---|

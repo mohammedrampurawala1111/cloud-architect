@@ -8,6 +8,13 @@ description: Adaptive requirements interview for architecture design. Reads the 
 Goal: gather just enough to make good architecture decisions, in **about 10
 questions**, without exhausting the user.
 
+**No repository or project folder (e.g. Claude chat, Cowork).** If there is
+no repository or writable project folder available (for example in Claude chat
+or Cowork without a folder), do not try to write files: deliver every document
+in the conversation as Markdown sections with the same headings, and say once
+that files weren't written. Skip repo scanning and say the team profile is
+self-reported.
+
 ## Before asking: read what already exists
 Read-only, and only with Read, Glob and Grep. Never run cloud CLIs or anything
 that contacts an environment.

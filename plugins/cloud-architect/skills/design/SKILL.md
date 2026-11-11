@@ -23,6 +23,13 @@ decide. So:
 - Cost is a **rough monthly range per option and its main drivers**, enough to
   compare options. Detailed cost analysis is the user's.
 
+**No repository or project folder (e.g. Claude chat, Cowork).** If there is
+no repository or writable project folder available (for example in Claude chat
+or Cowork without a folder), do not try to write files: deliver every document
+in the conversation as Markdown sections with the same headings, and say once
+that files weren't written. Skip repo scanning and say the team profile is
+self-reported.
+
 ## Principles
 1. **Capabilities before products.** Neutral building blocks first ("managed
    container runtime", "relational database"; vocabulary in `capability-map`),

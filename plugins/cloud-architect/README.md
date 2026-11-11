@@ -37,8 +37,8 @@ has the method and caveats.
 
 | | With cloud-architect | Plain Claude |
 |---|---|---|
-| Senior SRE production-readiness review | **56 / 57 (98%)** | 20 / 57 (35%) |
-| Principal DevOps architect design review | **47 / 57 (82%)** | 8 / 57 (14%) |
+| Senior-SRE rubric (Opus judge) | **56 / 57 (98%)** | 20 / 57 (35%) |
+| Principal-DevOps rubric (Opus judge) | **47 / 57 (82%)** | 8 / 57 (14%) |
 | Team fit respected | **57 / 57** | 51 / 57 |
 | Holds Kubernetes pushback when the CTO asks for EKS | **3 / 3** | 0 / 3 |
 | Every decision has a "because" | **55 / 57** | 39 / 57 |
@@ -48,8 +48,11 @@ has the method and caveats.
 | Mean score | **0.97** | 0.65 |
 | Cost per design (Sonnet, chat answer) | USD 0.27 | USD 0.16 |
 
-Senior reviewers approve its designs nearly three times as often. The strictest
-review still sends back 10 of 57, mostly for a cost or recovery figure that
+Scored by an LLM judge (Opus) with rubrics written by the author; not a human review. Method and caveats in evals/RESULTS.md.
+
+An Opus judge using senior-SRE and principal-DevOps rubrics approves its designs
+about three times as often as plain Claude's. The strictest rubric still sends
+back 10 of 57, mostly for a cost or recovery figure that
 doesn't match its mechanism.
 
 ## Install
@@ -67,9 +70,16 @@ Try it without installing, from a clone of the repository:
 claude --plugin-dir ./plugins/cloud-architect
 ```
 
-**Where it works:** built and tested in Claude Code (CLI, desktop and IDE
-extensions). It's instructions and reference data only, with no scripts to
-run; other surfaces haven't been tested yet.
+**Where it works:**
+- **Claude Code** (CLI, desktop and IDE extensions): reads the repository
+  read-only and writes the design to `docs/architecture/<name>/`. Built and
+  tested here.
+- **Claude chat and Cowork:** answers in the conversation, with every document
+  as a Markdown section under the same headings, and says that files weren't
+  written. With no repository the team profile is self-reported. `extend`
+  needs a codebase to read; without one it offers `design` instead.
+
+It's instructions and reference data only, with no scripts to run.
 
 ## How to use
 
